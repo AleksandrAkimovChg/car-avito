@@ -2,7 +2,6 @@ package com.javaacademy.car_avito.model;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.Setter;
 
