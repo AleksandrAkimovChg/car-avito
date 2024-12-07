@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AdDto {
+public class AdvertisementDto {
     private String brand;
     private String color;
     private BigDecimal price;

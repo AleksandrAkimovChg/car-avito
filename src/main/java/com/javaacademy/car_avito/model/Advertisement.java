@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 
 @Data
 @AllArgsConstructor
-public class Ad {
+public class Advertisement {
     @Setter(AccessLevel.NONE)
     private Integer id;
     private String brand;
