@@ -1,7 +1,7 @@
 package com.javaacademy.car_avito.service;
 
-import com.javaacademy.car_avito.model.Ad;
-import com.javaacademy.car_avito.storage.Storage;
+import com.javaacademy.car_avito.model.Advertisement;
+import com.javaacademy.car_avito.storage.AdvertisementStorage;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Profile;
@@ -13,17 +13,17 @@ import java.math.BigDecimal;
 @Profile("test")
 @RequiredArgsConstructor
 public class InitDataService {
-    private  final Storage storage;
+    private  final AdvertisementStorage storage;
 
     @PostConstruct
-    void init() {
-        Ad ad1 = createAd(-1, "Toyota", "красный", new BigDecimal("20000"));
-        Ad ad2 = createAd(0, null, "синий", new BigDecimal("30000"));
-        storage.saveAd(ad1);
-        storage.saveAd(ad2);
+    public void init() {
+        Advertisement ad1 = createAd(-1, "Toyota", "красный", new BigDecimal("20000"));
+        Advertisement ad2 = createAd(0, null, "синий", new BigDecimal("30000"));
+        storage.save(ad1);
+        storage.save(ad2);
     }
 
-    private Ad createAd(Integer id, String brand, String color, BigDecimal price) {
-        return new Ad(id, brand, color, price);
+    private Advertisement createAd(Integer id, String brand, String color, BigDecimal price) {
+        return new Advertisement(id, brand, color, price);
     }
 }

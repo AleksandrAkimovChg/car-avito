@@ -1,4 +1,4 @@
-package com.javaacademy.car_avito.model;
+package com.javaacademy.car_avito.service;
 
 import org.springframework.stereotype.Component;
 
