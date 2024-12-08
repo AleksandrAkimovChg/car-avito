@@ -24,28 +24,42 @@ import java.util.List;
 public class AdvertisementController {
     private final AdvertisementService advertisementService;
 
+    /**
+     * Создать объявление http://localhost:8003/advertisement/brand/приус
+     */
     @PostMapping
     public void saveAd(@RequestBody AdvertisementDto advertisementDto) {
         log.info(advertisementDto.toString());
         advertisementService.save(advertisementDto);
     }
 
-    @GetMapping("/search/brand/{brand}")
+    /**
+     * Поиск объявления
+     */
+    @GetMapping("/brand/{brand}")
     public List<Advertisement> findAllAdByBrand(@PathVariable String brand) {
         log.info("brand input: {}", brand);
-        return advertisementService.getAllAdByParam(brand, null, null);
+        return advertisementService.getAllAdByBrand(brand);
     }
 
-    @GetMapping("{/id}")
+    /**
+     * Получить объявление http://localhost:8003/advertisement/1
+     */
+    @GetMapping("/{id}")
     public Advertisement findAdById(@PathVariable Integer id) {
         log.info("id: {}", id);
         return advertisementService.getAdByAd(id).orElseThrow();
     }
 
+    /**
+     * Удалить объявление http://localhost:8003/advertisement/1
+     */
     @DeleteMapping("/{id}")
     public boolean getStorage(@PathVariable Integer id) {
         return advertisementService.deleteAdById(id);
     }
+
+
 
     @GetMapping("/search")
     public List<Advertisement> findAdByParam(@RequestParam(required = false) String brand,
